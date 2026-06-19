@@ -1,5 +1,6 @@
 import { SidebarProvider, SidebarTrigger } from '@/components/ui';
 import { Sidebar } from './Sidebar';
+import { Header } from './Header';
 
 type AppLayoutProps = {
   children: React.ReactNode;
@@ -10,8 +11,10 @@ export function AppLayout({ children }: AppLayoutProps) {
     <SidebarProvider>
       <Sidebar />
       <main className="p-4">
-        <SidebarTrigger />
-        <section className="py-4">{children}</section>
+        <Header>
+          <SidebarTrigger />
+        </Header>
+        <section>{children}</section>
       </main>
     </SidebarProvider>
   );
